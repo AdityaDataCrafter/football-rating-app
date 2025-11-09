@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import gspread
+import gspread as gs
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 
@@ -13,7 +13,7 @@ SCOPES = [
 
 # Load credentials
 creds = Credentials.from_service_account_file("football-ratingsapp-e25de5e18c9b.json", scopes=SCOPES)
-client = gspread.authorize(creds)
+client = gs.authorize(creds)
 sheet = client.open("Football Ratings spreadsheet").sheet1
 
 # --- Streamlit UI ---
